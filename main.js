@@ -10,6 +10,14 @@ const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
 
+setTimeout( () => {
+    Swal.fire({
+        title: "Consultá por nuestro servicio de jardinería",
+        background: "greenyellow",
+        color: "black",
+    })
+}, 3000);
+
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 productos.forEach((product)=> {
@@ -30,6 +38,16 @@ productos.forEach((product)=> {
     content.append(comprar);
 
     comprar.addEventListener("click", () =>{
+
+        Toastify({
+            text: "Producto agregado al carrito",
+            gravity: "bottom",
+            duration: 3000,
+            style:
+            {
+                background: "darkolivegreen",
+            }
+        }).showToast(); 
         
         const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
         if (repeat === true){
@@ -128,4 +146,29 @@ const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify (carrito));
 };
 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'ce7c067baemsh3bc7135d5e22ce2p175c77jsn1fb9a36b5420',
+		'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+	}
+};
+
+const tarifas = document.getElementById("tarifas");
+const listadoTarifas = "json/tarifas.json"; 
+
+fetch(listadoTarifas)
+    .then(respuesta => respuesta.json ()) 
+    .then(datos => {
+        datos.forEach(tarifa => {
+            tarifas.innerHTML += `
+            <h3>Lugar: ${tarifa.Lugar}</h3>
+            <p>Precio: $ ${tarifa.precio}</p>
+            `   
+        })
+    })
+    .catch(error => console.log(error))
+    .finally( () => {
+        console.log("Proceso finaliado");
+    });
 

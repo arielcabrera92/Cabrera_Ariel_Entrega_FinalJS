@@ -1,0 +1,7 @@
+[
+    {"Lugar": "Mendoza", "precio":1000, "id":1},
+    {"Lugar": "San Luis", "precio":2500, "id":2},
+    {"Lugar": "San Juan", "precio":2000, "id":3},
+    {"Lugar": "Córdoba", "precio":4000, "id":4},
+    {"Lugar": "Buenos Aires", "precio":6000, "id":5}
+]

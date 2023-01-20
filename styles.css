@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(172, 255, 47, 0.315)
 }
 .nav-container {
     position: sticky;
@@ -68,6 +69,7 @@ body {
 }
 
 .card {
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
@@ -172,4 +174,16 @@ body {
     right: 14px;
     position: absolute;
     display: none;
+}
+
+#tarifas {
+    padding: 20px;
+
+}
+footer {
+    color: black;
+    background-color: greenyellow;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
 }
